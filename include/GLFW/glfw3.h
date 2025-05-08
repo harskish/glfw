@@ -2671,6 +2671,12 @@ GLFWAPI void glfwGetMonitorPos(GLFWmonitor* monitor, int* xpos, int* ypos);
  */
 GLFWAPI void glfwGetMonitorWorkarea(GLFWmonitor* monitor, int* xpos, int* ypos, int* width, int* height);
 
+/*! @brief Retrieves the HDR/EDR range of the monitor.
+ *
+ *  TODO!
+ */
+GLFWAPI void glfwGetMonitorEDRRange(GLFWmonitor* monitor, float* maxPot, float* maxRef, float* maxCur);
+
 /*! @brief Returns the physical size of the monitor.
  *
  *  This function returns the size, in millimetres, of the display area of the

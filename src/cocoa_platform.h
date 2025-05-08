@@ -290,6 +290,7 @@ void _glfwFreeMonitorCocoa(_GLFWmonitor* monitor);
 void _glfwGetMonitorPosCocoa(_GLFWmonitor* monitor, int* xpos, int* ypos);
 void _glfwGetMonitorContentScaleCocoa(_GLFWmonitor* monitor, float* xscale, float* yscale);
 void _glfwGetMonitorWorkareaCocoa(_GLFWmonitor* monitor, int* xpos, int* ypos, int* width, int* height);
+void _glfwGetMonitorEDRRangeCocoa(_GLFWmonitor* monitor, float* maxPot, float* maxRef, float* maxCur);
 GLFWvidmode* _glfwGetVideoModesCocoa(_GLFWmonitor* monitor, int* count);
 GLFWbool _glfwGetVideoModeCocoa(_GLFWmonitor* monitor, GLFWvidmode* mode);
 GLFWbool _glfwGetGammaRampCocoa(_GLFWmonitor* monitor, GLFWgammaramp* ramp);

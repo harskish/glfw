@@ -213,6 +213,7 @@ void _glfwTerminateNull(void);
 void _glfwFreeMonitorNull(_GLFWmonitor* monitor);
 void _glfwGetMonitorPosNull(_GLFWmonitor* monitor, int* xpos, int* ypos);
 void _glfwGetMonitorContentScaleNull(_GLFWmonitor* monitor, float* xscale, float* yscale);
+void _glfwGetMonitorEDRRangeNull(_GLFWmonitor* monitor, float* maxPot, float* maxRef, float* maxCur);
 void _glfwGetMonitorWorkareaNull(_GLFWmonitor* monitor, int* xpos, int* ypos, int* width, int* height);
 GLFWvidmode* _glfwGetVideoModesNull(_GLFWmonitor* monitor, int* found);
 GLFWbool _glfwGetVideoModeNull(_GLFWmonitor* monitor, GLFWvidmode* mode);

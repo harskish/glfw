@@ -359,6 +359,24 @@ GLFWAPI void glfwGetMonitorWorkarea(GLFWmonitor* handle,
     _glfw.platform.getMonitorWorkarea(monitor, xpos, ypos, width, height);
 }
 
+GLFWAPI void glfwGetMonitorEDRRange(GLFWmonitor* handle,
+                                    float* maxPot, float* maxRef, float* maxCur)
+{
+    if (maxPot)
+        *maxPot = 0.0f;
+    if (maxRef)
+        *maxRef = 0.0f;
+    if (maxCur)
+        *maxCur = 0.0f;
+
+    _GLFW_REQUIRE_INIT();
+
+    _GLFWmonitor* monitor = (_GLFWmonitor*) handle;
+    assert(monitor != NULL);
+
+    _glfw.platform.getMonitorEDRRange(monitor, maxPot, maxRef, maxCur);
+}
+
 GLFWAPI void glfwGetMonitorPhysicalSize(GLFWmonitor* handle, int* widthMM, int* heightMM)
 {
     if (widthMM)

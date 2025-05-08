@@ -63,6 +63,7 @@ GLFWbool _glfwConnectNull(int platformID, _GLFWplatform* platform)
         .freeMonitor = _glfwFreeMonitorNull,
         .getMonitorPos = _glfwGetMonitorPosNull,
         .getMonitorContentScale = _glfwGetMonitorContentScaleNull,
+        .getMonitorEDRRange = _glfwGetMonitorEDRRangeNull,
         .getMonitorWorkarea = _glfwGetMonitorWorkareaNull,
         .getVideoModes = _glfwGetVideoModesNull,
         .getVideoMode = _glfwGetVideoModeNull,
