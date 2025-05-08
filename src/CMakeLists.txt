@@ -279,7 +279,11 @@ if (MINGW)
         target_include_directories(glfw PRIVATE "${GLFW_SOURCE_DIR}/deps/mingw")
     endif()
 endif()
-target_link_libraries(glfw PRIVATE d3d12.lib dxgi.lib d3dcompiler.lib dxguid.lib)
+
+if (WIN32)
+    target_link_libraries(glfw PRIVATE d3d12.lib dxgi.lib d3dcompiler.lib dxguid.lib)
+endif()
+
 # Workaround for the MS CRT deprecating parts of the standard library
 if (MSVC OR CMAKE_C_SIMULATE_ID STREQUAL "MSVC")
     target_compile_definitions(glfw PRIVATE _CRT_SECURE_NO_WARNINGS)

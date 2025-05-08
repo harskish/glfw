@@ -101,6 +101,17 @@ void _glfwGetMonitorWorkareaNull(_GLFWmonitor* monitor,
         *height = mode.height - 10;
 }
 
+void _glfwGetMonitorEDRRangeNull(_GLFWmonitor* monitor,
+                                 float* maxPot, float* maxRef, float* maxCur)
+{
+    if (maxPot)
+        *maxPot = 0.0f;
+    if (maxRef)
+        *maxRef = 0.0f;
+    if (maxCur)
+        *maxCur = 0.0f;
+}
+
 GLFWvidmode* _glfwGetVideoModesNull(_GLFWmonitor* monitor, int* found)
 {
     GLFWvidmode* mode = _glfw_calloc(1, sizeof(GLFWvidmode));

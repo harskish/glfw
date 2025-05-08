@@ -621,6 +621,29 @@ void _glfwSetGammaRampCocoa(_GLFWmonitor* monitor, const GLFWgammaramp* ramp)
     } // autoreleasepool
 }
 
+void _glfwGetMonitorEDRRangeCocoa(_GLFWmonitor* monitor,
+                                  float* maxPot, float* maxRef, float* maxCur)
+{
+    @autoreleasepool {
+
+    if (!monitor->ns.screen)
+    {
+        _glfwInputError(GLFW_PLATFORM_ERROR,
+                        "Cocoa: Cannot query EDR range without screen");
+    }
+
+    NSScreen *screen = monitor->ns.screen;
+
+    if (maxPot)
+        *maxPot = (float)screen.maximumPotentialExtendedDynamicRangeColorComponentValue;
+    if (maxRef)
+        *maxRef = (float)screen.maximumReferenceExtendedDynamicRangeColorComponentValue;
+    if (maxCur)
+        *maxCur = (float)screen.maximumExtendedDynamicRangeColorComponentValue;
+
+    } // autoreleasepool
+}
+
 
 //////////////////////////////////////////////////////////////////////////
 //////                        GLFW native API                       //////

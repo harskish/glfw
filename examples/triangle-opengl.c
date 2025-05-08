@@ -66,7 +66,7 @@ static const char* fragment_shader_text =
 "out vec4 fragment;\n"
 "void main()\n"
 "{\n"
-"    fragment = vec4(2.2, 0.0, 0.0, 1.0);\n"
+"    fragment = vec4(5.0, 0.0, 0.0, 1.0);\n"
 "}\n";
 
 static void error_callback(int error, const char* description)
@@ -91,6 +91,11 @@ int main(void)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+    // For HDR/EDR
+    glfwWindowHint(GLFW_RED_BITS, 16);
+    glfwWindowHint(GLFW_GREEN_BITS, 16);
+    glfwWindowHint(GLFW_BLUE_BITS, 16);
+
     GLFWwindow* window = glfwCreateWindow(640, 480, "OpenGL Triangle", NULL, NULL);
     if (!window)
     {
@@ -105,6 +110,13 @@ int main(void)
     glfwMakeContextCurrent(window);
     gladLoadGL(glfwGetProcAddress);
     glfwSwapInterval(1);
+
+    // Check EDR range
+    GLFWmonitor* monitor = glfwGetWindowMonitor(window); // Null in windowed mode
+    if (!monitor) {
+        monitor = glfwGetPrimaryMonitor();
+    }
+    float maxPot, maxRef, maxCur;
 
     // NOTE: OpenGL error checks have been omitted for brevity
 
@@ -163,6 +175,9 @@ int main(void)
         glfwSwapBuffers(window);
 
         glfwPollEvents();
+
+        glfwGetMonitorEDRRange(monitor, &maxPot, &maxRef, &maxCur);
+        printf("EDR range: pot=%f, ref=%f, cur=%f\n", maxPot, maxRef, maxCur);
     }
 
     glfwDestroyWindow(window);

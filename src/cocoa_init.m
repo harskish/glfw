@@ -517,6 +517,7 @@ GLFWbool _glfwConnectCocoa(int platformID, _GLFWplatform* platform)
         .freeMonitor = _glfwFreeMonitorCocoa,
         .getMonitorPos = _glfwGetMonitorPosCocoa,
         .getMonitorContentScale = _glfwGetMonitorContentScaleCocoa,
+        .getMonitorEDRRange = _glfwGetMonitorEDRRangeCocoa,
         .getMonitorWorkarea = _glfwGetMonitorWorkareaCocoa,
         .getVideoModes = _glfwGetVideoModesCocoa,
         .getVideoMode = _glfwGetVideoModeCocoa,
